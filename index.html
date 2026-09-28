@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OLN CLASSIC | Bespoke Classic Suits & Handcrafted Silk Ties</title>
+  <meta name="description" content="Discover OLN CLASSIC — the premier atelier for handcrafted 100% pure Mulberry silk ties and masterfully tailored classic suits for the distinguished gentleman.">
+  <meta name="keywords" content="OLN, OLN classic, ties, luxury silk ties, bespoke suits, classic suits for men, tuxedos, neckwear, sartorial menswear">
+  <meta property="og:title" content="OLN CLASSIC | Bespoke Classic Suits & Handcrafted Silk Ties">
+  <meta property="og:description" content="Handcrafted pure silk neckwear and masterfully tailored classic suits designed for men who command distinction.">
+  <meta property="og:image" content="./718894383_17996280023967008_8453631572375358516_n.jpg">
+  <link rel="icon" type="image/jpeg" href="./718894383_17996280023967008_8453631572375358516_n.jpg">
+
+  <!-- Google Fonts: Playfair Display (Serif) & Plus Jakarta Sans (Sans-serif) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Custom Luxury Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ==========================================
+       1. Top Announcement Bar
+       ========================================== -->
+  <aside class="announcement-bar" role="region" aria-label="Announcement">
+    <div class="announcement-slider">
+      <span class="announcement-tag">Exclusive Privilege</span>
+      <span>Complimentary Worldwide Express Courier on all orders over $200 &bull; Handcrafted from 100% Pure Mulberry Silk</span>
+    </div>
+  </aside>
+
+  <!-- ==========================================
+       2. Sticky Luxury Header & Navigation
+       ========================================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <!-- Brand Logo & Monogram -->
+      <a href="#hero" class="brand-link" id="brandLogo">
+        <div class="brand-emblem-wrap">
+          <img src="./718894383_17996280023967008_8453631572375358516_n.jpg" alt="OLN Classic Emblem" class="brand-emblem-img">
+        </div>
+        <div class="brand-text-wrap">
+          <span class="brand-title">OLN</span>
+          <span class="brand-subtitle">CLASSIC</span>
+        </div>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav class="main-nav" id="mainNav" aria-label="Main Navigation">
+        <a href="#shop" class="nav-link active" onclick="STATE.activeCategory='all'; renderProducts();">Collections</a>
+        <a href="#shop" class="nav-link" onclick="STATE.activeCategory='ties'; renderProducts();">Silk Ties</a>
+        <a href="#shop" class="nav-link" onclick="STATE.activeCategory='suits'; renderProducts();">Classic Suits</a>
+        <a href="#shop" class="nav-link" onclick="STATE.activeCategory='tuxedos'; renderProducts();">Black Tie</a>
+        <a href="#stylingStudio" class="nav-link">Styling Studio</a>
+        <a href="#heritage" class="nav-link">Atelier Heritage</a>
+      </nav>
+
+      <!-- Header Actions: Search, Currency, Wishlist, Cart -->
+      <div class="header-actions">
+        <!-- Live Instant Search -->
+        <div style="position: relative; display: flex; align-items: center;">
+          <input type="text" id="navSearchInput" placeholder="Search ties, suits, fabrics..." 
+                 style="background: rgba(255,255,255,0.06); border: 1px solid var(--border-subtle); color: #fff; padding: 0.45rem 0.85rem; border-radius: var(--radius-full); font-size: 0.82rem; width: 170px; transition: all 0.3s ease;"
+                 onfocus="this.style.width='220px'; this.style.borderColor='var(--gold-primary)';"
+                 onblur="this.style.width='170px'; if(!this.value) this.style.borderColor='var(--border-subtle)';"
+                 aria-label="Search creations">
+        </div>
+
+        <!-- Currency Selector -->
+        <div class="currency-selector">
+          <select id="currencySelector" class="currency-select-btn" aria-label="Select Currency">
+            <option value="USD">USD ($)</option>
+            <option value="EUR">EUR (€)</option>
+            <option value="GBP">GBP (£)</option>
+            <option value="EGP">EGP (E£)</option>
+            <option value="AED">AED (د.إ)</option>
+          </select>
+        </div>
+
+        <!-- Wishlist Trigger -->
+        <button class="action-btn" id="navWishlistBtn" onclick="STATE.activeCategory='all'; renderProducts(); document.getElementById('shop').scrollIntoView({behavior:'smooth'});" aria-label="Wishlist" title="View Wishlist">
+          <span>♡</span>
+          <span class="badge-count" id="wishlistBadgeCount" style="display: none;">0</span>
+        </button>
+
+        <!-- Shopping Bag Trigger -->
+        <button class="action-btn" id="navCartBtn" onclick="openCartDrawer()" aria-label="Shopping Bag" title="Open Shopping Bag">
+          <span>👜</span>
+          <span class="badge-count" id="cartBadgeCount" style="display: none;">0</span>
+        </button>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="action-btn mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle navigation menu">
+          ☰
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       3. Hero Section (Cinematic Atelier)
+       ========================================== -->
+  <section class="hero-section" id="hero">
+    <div class="hero-bg-container">
+      <img src="./hero_atelier.jpg" alt="OLN Classic Atelier Lounge" class="hero-bg-img">
+      <div class="hero-overlay"></div>
+    </div>
+
+    <div class="container hero-content">
+      <div class="hero-badge">
+        <span>⚜</span>
+        <span>MAISON DE HAUTE COUTURE POUR HOMME</span>
+      </div>
+      <h1 class="hero-title">
+        The Essence of <span>Sartorial Distinction</span>
+      </h1>
+      <p class="hero-desc">
+        Handcrafted pure Mulberry silk neckwear and masterfully structured classic suits. Tailored for gentlemen who command presence with understated elegance.
+      </p>
+      <div class="hero-cta-group">
+        <a href="#shop" class="btn-primary-gold" onclick="STATE.activeCategory='ties'; renderProducts();">
+          <span>Explore Ties</span>
+          <span>→</span>
+        </a>
+        <a href="#shop" class="btn-outline-gold" onclick="STATE.activeCategory='suits'; renderProducts();">
+          <span>Discover Classic Suits</span>
+        </a>
+        <button onclick="openSizeGuide()" class="btn-outline-gold" style="border-style: dashed;">
+          <span>Size & Fit Guide</span>
+        </button>
+      </div>
+
+      <!-- Trust Badges Strip -->
+      <div class="hero-trust-strip">
+        <div class="trust-item">
+          <div class="trust-icon">✂</div>
+          <div>
+            <div class="trust-title">Artisanal 7-Fold Craft</div>
+            <div class="trust-subtitle">100% Pure Mulberry Silk</div>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">📐</div>
+          <div>
+            <div class="trust-title">Master Tailoring</div>
+            <div class="trust-subtitle">Canvassed Italian Virgin Wool</div>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">✈</div>
+          <div>
+            <div class="trust-title">White-Glove Courier</div>
+            <div class="trust-subtitle">Complimentary on $200+</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       4. Product Showcase & Collections
+       ========================================== -->
+  <section class="shop-section" id="shop">
+    <div class="container">
+      <div style="text-align: center;">
+        <span class="section-label">THE SARTORIAL CATALOG</span>
+        <h2 class="section-title">Curated Creations</h2>
+        <p class="section-desc">
+          From vibrant woven jacquards to structured Italian wool canvassing, each creation is crafted to elevate your daily presence.
+        </p>
+      </div>
+
+      <!-- Category Filter & Sort Bar -->
+      <div class="shop-controls">
+        <div class="category-tabs" role="tablist">
+          <button class="tab-btn active" data-category="all" role="tab">All Creations</button>
+          <button class="tab-btn" data-category="ties" role="tab">Signature Silk Ties</button>
+          <button class="tab-btn" data-category="suits" role="tab">Classic Suits</button>
+          <button class="tab-btn" data-category="tuxedos" role="tab">Black Tie & Gala</button>
+        </div>
+
+        <div class="shop-sort-wrap">
+          <span class="sort-label">Sort by:</span>
+          <select id="shopSortSelect" class="custom-select" aria-label="Sort Creations">
+            <option value="featured">Featured Creations</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="rating">Highest Rated</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Main Products Grid (Injected via app.js) -->
+      <div class="product-grid" id="productsGrid" aria-live="polite">
+        <!-- Products populated dynamically -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       5. Interactive Suit & Tie Styling Studio
+       ========================================== -->
+  <section class="styling-studio-section" id="stylingStudio">
+    <div class="container">
+      <div style="text-align: center;">
+        <span class="section-label">EXCLUSIVE ATELIER TOOL</span>
+        <h2 class="section-title">The Sartorial Pairer</h2>
+        <p class="section-desc">
+          Experiment with how our handcrafted pure silk ties harmonize against our bespoke suits. Receive direct styling counsel from our master tailor.
+        </p>
+      </div>
+
+      <div class="studio-grid">
+        <!-- Interactive Side-by-Side Display -->
+        <div class="studio-preview-box">
+          <div class="studio-suit-display">
+            <div class="display-frame">
+              <img id="studioSuitImg" src="./suit1.jpg" alt="Selected Suit">
+            </div>
+            <div class="studio-suit-title" id="studioSuitTitle">The Savoy Navy Three-Piece</div>
+            <span style="font-size: 0.75rem; color: var(--text-muted);">Bespoke Tailored Suit</span>
+          </div>
+
+          <div class="studio-plus-icon">+</div>
+
+          <div class="studio-tie-display">
+            <div class="display-frame">
+              <img id="studioTieImg" src="./tie6.png" alt="Selected Tie">
+            </div>
+            <div class="studio-tie-title" id="studioTieTitle">The Royal Navy & Gold Repp</div>
+            <span style="font-size: 0.75rem; color: var(--text-muted);">100% Pure Mulberry Silk</span>
+          </div>
+        </div>
+
+        <!-- Controls & Recommendations -->
+        <div class="studio-controls-box">
+          <!-- Suit Selector -->
+          <div class="studio-picker-group">
+            <label class="studio-picker-label">1. Choose Your Suit Canvas</label>
+            <div class="picker-thumbnails" id="suitPickerThumbs">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+
+          <!-- Tie Selector -->
+          <div class="studio-picker-group">
+            <label class="studio-picker-label">2. Select Your Silk Tie Accent</label>
+            <div class="picker-thumbnails" id="tiePickerThumbs">
+              <!-- Rendered via JS -->
+            </div>
+          </div>
+
+          <!-- Tailor's Advice -->
+          <div class="pair-sartorial-verdict" id="studioStylingVerdict">
+            <strong>Tailor’s Note:</strong> The iconic collegiate statement: Golden yellow and navy repp stripes pair flawlessly with the Savoy 3-piece suit for undisputed executive authority.
+          </div>
+
+          <!-- Bundle Action Row -->
+          <div class="pair-price-row">
+            <div>
+              <span style="font-size: 0.78rem; text-transform: uppercase; color: var(--text-muted); display: block;">Combined Ensemble Price</span>
+              <div class="combo-bundle-price" id="studioBundlePrice">$878 <span class="combo-savings-tag">10% Off Bundle</span></div>
+            </div>
+            <button class="btn-primary-gold" onclick="addStyledComboToCart()" style="padding: 0.85rem 1.6rem;">
+              <span>Bag Complete Ensemble</span>
+              <span>👜</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       6. Heritage & Artisanal Craftsmanship
+       ========================================== -->
+  <section class="heritage-section" id="heritage">
+    <div class="container">
+      <div class="heritage-grid">
+        <div class="heritage-img-stack">
+          <img src="./hero_atelier.jpg" alt="OLN Tailoring Excellence" class="heritage-main-img">
+          <div class="heritage-seal-badge">
+            <img src="./718894383_17996280023967008_8453631572375358516_n.jpg" alt="OLN Gold Seal">
+          </div>
+        </div>
+
+        <div class="heritage-content">
+          <span class="section-label">MAISON DE TRADITION</span>
+          <h2 class="section-title">The OLN Sartorial Heritage</h2>
+          <p style="color: var(--text-secondary); font-size: 1.05rem; margin-bottom: 1.25rem;">
+            Born from an uncompromising obsession with classical menswear, <strong>OLN CLASSIC</strong> honors the golden era of tailoring. We believe a gentleman’s tie is not merely an accessory — it is the centerpiece of his personal character.
+          </p>
+          <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.7;">
+            Each tie is cut on the true bias at 45 degrees, folded with precision, and balanced with double wool interlining to guarantee the fabled <em>"sartorial dimple"</em> that stays immaculate from early morning meetings to late-evening galas.
+          </p>
+
+          <div class="craft-pillars">
+            <div class="craft-card">
+              <div class="craft-icon">⚜</div>
+              <h4 class="craft-title">100% Pure Mulberry Silk</h4>
+              <p class="craft-text">Sourced from the finest silk mills, woven with ultra-dense jacquard warps for vibrant sheen.</p>
+            </div>
+            <div class="craft-card">
+              <div class="craft-icon">🧵</div>
+              <h4 class="craft-title">Hand-Finished Bar Tacks</h4>
+              <p class="craft-text">Reinforced bar tacks and slip-stitching give natural elasticity and resilience through hundreds of knots.</p>
+            </div>
+            <div class="craft-card">
+              <div class="craft-icon">✂</div>
+              <h4 class="craft-title">Canvassed Structure</h4>
+              <p class="craft-text">Our suits feature genuine horsehair canvas that molds to your physique over time for a bespoke fit.</p>
+            </div>
+            <div class="craft-card">
+              <div class="craft-icon">✦</div>
+              <h4 class="craft-title">Perfect Knot Dynamics</h4>
+              <p class="craft-text">Engineered weight distribution enables crisp Half-Windsor and Pratt knots with zero slipping.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       7. Gentleman Testimonials & Reviews
+       ========================================== -->
+  <section class="reviews-section">
+    <div class="container">
+      <div style="text-align: center;">
+        <span class="section-label">DISTINGUISHED PATRONS</span>
+        <h2 class="section-title">Words from Gentlemen of Taste</h2>
+        <p class="section-desc">Trusted by senior executives, barristers, diplomats, and discerning grooms around the globe.</p>
+      </div>
+
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">
+            "The Grand Burgundy Diamond tie holds a dimple like no other necktie I own, including ties twice the price from Bond Street. The fabric weight and silk density are simply unmatched."
+          </p>
+          <div class="reviewer-meta">
+            <div>
+              <div class="reviewer-name">Julian Vance-Moreau</div>
+              <div class="reviewer-title">Partner, Equity Private Wealth</div>
+            </div>
+            <span class="verified-badge">✓ Verified Buyer</span>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">
+            "I ordered The Savoy Navy 3-Piece suit along with the Royal Repp tie. The peak lapels sit naturally flat, and the canvas drape is phenomenal. Received endless compliments at the annual gala."
+          </p>
+          <div class="reviewer-meta">
+            <div>
+              <div class="reviewer-name">Dr. Marcus Sterling</div>
+              <div class="reviewer-title">Cardiothoracic Surgeon & Patron</div>
+            </div>
+            <span class="verified-badge">✓ Verified Buyer</span>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">
+            "The Riviera Sky Blue tie paired with my charcoal jacket created the most crisp look in our board meeting. The packaging with gold-stamped presentation box was exceptionally luxurious."
+          </p>
+          <div class="reviewer-meta">
+            <div>
+              <div class="reviewer-name">Tariq Al-Mansoor</div>
+              <div class="reviewer-title">Managing Director, Capital Logistics</div>
+            </div>
+            <span class="verified-badge">✓ Verified Buyer</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       8. VIP Gentleman’s Club Newsletter
+       ========================================== -->
+  <section class="vip-club-section">
+    <div class="container vip-content-wrap">
+      <span class="section-label" style="color: var(--gold-light);">BY INVITATION</span>
+      <h2 class="section-title">The OLN Gentleman’s Circle</h2>
+      <p style="color: var(--text-secondary); font-size: 0.95rem;">
+        Subscribe for private atelier previews, limited capsule releases, and receive an instant <strong>10% welcome privilege</strong> on your initial acquisition.
+      </p>
+
+      <form id="vipClubForm" class="vip-form" aria-label="VIP Newsletter">
+        <input type="email" class="vip-input" placeholder="Enter your distinguished email address" required aria-label="Email address">
+        <button type="submit" class="btn-primary-gold" style="white-space: nowrap;">Join Circle</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       9. Footer
+       ========================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <!-- Brand Info -->
+        <div class="footer-brand-col">
+          <div style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.75rem;">
+            <div style="width: 38px; height: 38px; border-radius: 50%; overflow: hidden; border: 1px solid var(--gold-primary);">
+              <img src="./718894383_17996280023967008_8453631572375358516_n.jpg" alt="OLN Logo" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <span style="font-family: var(--font-serif); font-size: 1.4rem; letter-spacing: 0.15em; font-weight: 800; color: #fff;">OLN CLASSIC</span>
+          </div>
+          <p>
+            Makers of bespoke classic suits and handcrafted pure Mulberry silk neckwear. Where timeless craftsmanship meets modern masculine elegance.
+          </p>
+          <div class="footer-socials">
+            <a href="#" class="social-link" aria-label="Instagram">📸</a>
+            <a href="#" class="social-link" aria-label="LinkedIn">💼</a>
+            <a href="#" class="social-link" aria-label="Pinterest">📌</a>
+            <a href="#" class="social-link" aria-label="Email Concierge">✉</a>
+          </div>
+        </div>
+
+        <!-- Collections -->
+        <div>
+          <h4 class="footer-col-title">Collections</h4>
+          <ul class="footer-links">
+            <li><a href="#shop" onclick="STATE.activeCategory='ties'; renderProducts();">Signature Silk Ties</a></li>
+            <li><a href="#shop" onclick="STATE.activeCategory='suits'; renderProducts();">Three-Piece Suits</a></li>
+            <li><a href="#shop" onclick="STATE.activeCategory='suits'; renderProducts();">Double-Breasted Wool Suits</a></li>
+            <li><a href="#shop" onclick="STATE.activeCategory='tuxedos'; renderProducts();">Black Tie Velvet Tuxedos</a></li>
+            <li><a href="#stylingStudio">Interactive Styling Studio</a></li>
+          </ul>
+        </div>
+
+        <!-- Concierge & Care -->
+        <div>
+          <h4 class="footer-col-title">Atelier Care</h4>
+          <ul class="footer-links">
+            <li><a href="javascript:void(0)" onclick="openSizeGuide()">Size & Fit Measurement Chart</a></li>
+            <li><a href="javascript:void(0)" onclick="openSizeGuide()">The Perfect Knot Guide</a></li>
+            <li><a href="javascript:void(0)" onclick="showToast('Silk Care: Never machine wash. Dry clean or steam gently.', 'ℹ')">Silk Preservation Care</a></li>
+            <li><a href="javascript:void(0)" onclick="showToast('Express Courier: Delivery in 3-5 business days globally.', '✈')">Worldwide Delivery Status</a></li>
+            <li><a href="javascript:void(0)" onclick="showToast('Complimentary returns accepted within 30 days.', '↩')">Complimentary Returns</a></li>
+          </ul>
+        </div>
+
+        <!-- Legal & Private Client -->
+        <div>
+          <h4 class="footer-col-title">Private Client</h4>
+          <ul class="footer-links">
+            <li><a href="javascript:void(0)" onclick="showToast('Bespoke bookings: concierge@olnclassic.com', '⚜')">Book Private Tailor Fitting</a></li>
+            <li><a href="javascript:void(0)" onclick="showToast('Corporate gifting packages available upon inquiry.', '🎁')">Executive Corporate Gifting</a></li>
+            <li><a href="javascript:void(0)" onclick="showToast('Authenticity Certificate included with all orders.', '✓')">Authenticity Guarantee</a></li>
+            <li><a href="javascript:void(0)">Privacy Policy</a></li>
+            <li><a href="javascript:void(0)">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 OLN CLASSIC. All rights reserved. Registered Maison de Haute Couture.
+        </div>
+        <div class="payment-methods" title="Secure Encrypted Payment Gateway">
+          <span>💳 Visa</span>
+          <span>💳 Mastercard</span>
+          <span>💳 Amex</span>
+          <span> Apple Pay</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================
+       10. Slide-In Shopping Bag Drawer
+       ========================================== -->
+  <div class="drawer-backdrop" id="cartDrawerBackdrop" onclick="closeCartDrawer()"></div>
+  <aside class="cart-drawer" id="cartDrawer" role="dialog" aria-labelledby="cartDrawerTitle">
+    <div class="drawer-header">
+      <h3 class="drawer-title" id="cartDrawerTitle">
+        <span>👜</span>
+        <span>Your Shopping Bag</span>
+      </h3>
+      <button class="drawer-close-btn" onclick="closeCartDrawer()" aria-label="Close Shopping Bag">✕</button>
+    </div>
+
+    <!-- Free Shipping Goal Tracker -->
+    <div class="shipping-meter-wrap">
+      <div class="shipping-meter-text" id="shippingMeterText">
+        Add items to qualify for <strong>Complimentary Express Courier</strong>.
+      </div>
+      <div class="shipping-progress-bar">
+        <div class="shipping-progress-fill" id="shippingProgressFill"></div>
+      </div>
+    </div>
+
+    <!-- Items List (Injected by JS) -->
+    <div class="drawer-items-list" id="drawerItemsList">
+      <!-- Items loaded dynamically -->
+    </div>
+
+    <!-- Drawer Footer -->
+    <div class="drawer-footer">
+      <div class="promo-row">
+        <input type="text" id="promoCodeInput" class="promo-input" placeholder="Promo code (e.g. OLN10)">
+        <button class="promo-btn" onclick="applyPromoCode()">Apply</button>
+      </div>
+
+      <div class="drawer-subtotal-row">
+        <span style="color: var(--text-muted); font-size: 0.95rem; font-weight: 500;">Bag Total:</span>
+        <span id="drawerSubtotal" style="color: var(--gold-light); font-size: 1.35rem;">$0</span>
+      </div>
+
+      <button class="drawer-checkout-btn" onclick="openCheckoutModal()">
+        <span>Proceed to Checkout</span>
+        <span>→</span>
+      </button>
+      <p style="text-align: center; font-size: 0.72rem; color: var(--text-muted); margin-top: 0.75rem;">
+        🔒 256-Bit SSL Encrypted Checkout &bull; Free Global Returns
+      </p>
+    </div>
+  </aside>
+
+  <!-- ==========================================
+       11. Product Quick View Modal
+       ========================================== -->
+  <div class="modal-backdrop" id="quickViewModal" role="dialog" aria-modal="true" aria-labelledby="quickViewTitle">
+    <div class="modal-card">
+      <button class="modal-close-btn" onclick="closeQuickView()" aria-label="Close modal">✕</button>
+      <div id="quickViewContainer">
+        <!-- Injected via openQuickView() -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       12. Sartorial Size & Measurement Guide Modal
+       ========================================== -->
+  <div class="modal-backdrop" id="sizeGuideModal" role="dialog" aria-modal="true" aria-labelledby="sizeGuideTitle">
+    <div class="modal-card">
+      <button class="modal-close-btn" onclick="closeSizeGuide()" aria-label="Close modal">✕</button>
+      <div class="size-guide-content">
+        <span class="section-label">ATELIER SPECIFICATIONS</span>
+        <h2 class="section-title" id="sizeGuideTitle">Sartorial Size & Fit Guide</h2>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">
+          OLN classic suits and pure silk ties are engineered to classical proportions, balancing Savile Row structure with Italian comfort.
+        </p>
+
+        <!-- Suits Sizing Table -->
+        <h4 style="font-family: var(--font-serif); font-size: 1.15rem; color: var(--gold-light); margin: 1.75rem 0 0.5rem;">
+          Classic Men's Suit Sizing
+        </h4>
+        <table class="guide-table">
+          <thead>
+            <tr>
+              <th>US / UK Size</th>
+              <th>EU Size</th>
+              <th>Chest Circumference</th>
+              <th>Waist (Trousers)</th>
+              <th>Shoulder Width</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>38R</strong></td>
+              <td>48</td>
+              <td>38 in (96 cm)</td>
+              <td>32 in (81 cm)</td>
+              <td>17.8 in (45 cm)</td>
+            </tr>
+            <tr>
+              <td><strong>40R</strong></td>
+              <td>50</td>
+              <td>40 in (101 cm)</td>
+              <td>34 in (86 cm)</td>
+              <td>18.3 in (46.5 cm)</td>
+            </tr>
+            <tr>
+              <td><strong>42R</strong></td>
+              <td>52</td>
+              <td>42 in (106 cm)</td>
+              <td>36 in (91 cm)</td>
+              <td>18.8 in (48 cm)</td>
+            </tr>
+            <tr>
+              <td><strong>44R</strong></td>
+              <td>54</td>
+              <td>44 in (111 cm)</td>
+              <td>38 in (96 cm)</td>
+              <td>19.3 in (49.5 cm)</td>
+            </tr>
+            <tr>
+              <td><strong>46R</strong></td>
+              <td>56</td>
+              <td>46 in (116 cm)</td>
+              <td>40 in (101 cm)</td>
+              <td>19.8 in (51 cm)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Tie Dimensions & Knot Guide -->
+        <h4 style="font-family: var(--font-serif); font-size: 1.15rem; color: var(--gold-light); margin: 2rem 0 0.5rem;">
+          OLN Pure Silk Tie Specifications
+        </h4>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1rem;">
+          <div style="background: rgba(255,255,255,0.03); padding: 1.25rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+            <strong style="color: #fff; font-size: 0.95rem; display: block; margin-bottom: 0.4rem;">Classic Blade (8.5 cm / 3.35 in)</strong>
+            <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5;">
+              The timeless standard. Ideal for standard to wide suit lapels (8cm to 9.5cm) and classic spread collar shirts.
+            </p>
+          </div>
+          <div style="background: rgba(255,255,255,0.03); padding: 1.25rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+            <strong style="color: #fff; font-size: 0.95rem; display: block; margin-bottom: 0.4rem;">Contemporary Blade (7.5 cm / 2.95 in)</strong>
+            <p style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5;">
+              Slightly streamlined. Complements modern tailored slim-lapel jackets, semi-spread collars, and younger silhouettes.
+            </p>
+          </div>
+        </div>
+
+        <div style="margin-top: 1.75rem; text-align: center;">
+          <button class="btn-primary-gold" onclick="closeSizeGuide()" style="padding: 0.75rem 2rem;">Got It</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       13. 2-Step E-Commerce Checkout Modal
+       ========================================== -->
+  <div class="modal-backdrop" id="checkoutModal" role="dialog" aria-modal="true" aria-labelledby="checkoutModalTitle">
+    <div class="modal-card checkout-modal-card">
+      <button class="modal-close-btn" onclick="closeCheckoutModal()" aria-label="Close modal">✕</button>
+
+      <!-- Step Indicator -->
+      <div class="checkout-steps-indicator">
+        <div class="step-indicator-item active" id="stepIndicator1">
+          <span class="step-number">1</span>
+          <span>Delivery Details</span>
+        </div>
+        <span>&rsaquo;</span>
+        <div class="step-indicator-item" id="stepIndicator2">
+          <span class="step-number">2</span>
+          <span>Payment & Order</span>
+        </div>
+      </div>
+
+      <!-- Order Summary Card -->
+      <div id="checkoutOrderSummary"></div>
+
+      <!-- Step 1: Shipping Address Form -->
+      <div id="checkoutStep1">
+        <h3 style="font-family: var(--font-serif); font-size: 1.3rem; color: #fff; margin-bottom: 1.25rem;" id="checkoutModalTitle">
+          Recipient & Delivery Address
+        </h3>
+        <form id="shippingAddressForm" onsubmit="proceedToPaymentStep(event)">
+          <div class="checkout-form-grid">
+            <div class="form-group form-full-col">
+              <label class="form-label" for="shipFullName">Full Legal Name *</label>
+              <input type="text" id="shipFullName" class="form-input" placeholder="e.g. Lord Alexander Wright" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="shipEmail">Email Address (For Inscription & Tracking) *</label>
+              <input type="email" id="shipEmail" class="form-input" placeholder="alexander@example.com" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="shipPhone">Mobile Number (For Courier Contact) *</label>
+              <input type="tel" id="shipPhone" class="form-input" placeholder="+1 (555) 019-2834" required>
+            </div>
+            <div class="form-group form-full-col">
+              <label class="form-label" for="shipAddress">Street Address / Residence *</label>
+              <input type="text" id="shipAddress" class="form-input" placeholder="42 Mayfair Square, Suite 800" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="shipCity">City *</label>
+              <input type="text" id="shipCity" class="form-input" placeholder="London" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="shipCountry">Country *</label>
+              <select id="shipCountry" class="form-input" style="background: #090e19;" required>
+                <option value="United States">United States</option>
+                <option value="United Kingdom" selected>United Kingdom</option>
+                <option value="United Arab Emirates">United Arab Emirates</option>
+                <option value="Egypt">Egypt</option>
+                <option value="France">France</option>
+                <option value="Germany">Germany</option>
+                <option value="Saudi Arabia">Saudi Arabia</option>
+                <option value="Canada">Canada</option>
+                <option value="Italy">Italy</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="margin-top: 2rem; display: flex; justify-content: flex-end;">
+            <button type="submit" class="btn-primary-gold" style="width: 100%; justify-content: center;">
+              Continue to Secure Payment &rarr;
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Step 2: Payment Details -->
+      <div id="checkoutStep2" style="display: none;">
+        <h3 style="font-family: var(--font-serif); font-size: 1.3rem; color: #fff; margin-bottom: 1.25rem;">
+          Secure Payment Method
+        </h3>
+
+        <!-- Payment Tabs -->
+        <input type="hidden" id="selectedPaymentMethod" value="Credit / Debit Card">
+        <div style="display: flex; gap: 0.75rem; margin-bottom: 1.5rem;" id="paymentMethodsGroup">
+          <button type="button" class="btn-primary-gold payment-tab-btn active" style="flex: 1; justify-content: center; padding: 0.75rem; font-size: 0.8rem;" onclick="selectPaymentMethod('Credit / Debit Card', this)">
+            💳 Credit / Debit Card
+          </button>
+          <button type="button" class="btn-outline-gold payment-tab-btn" style="flex: 1; justify-content: center; padding: 0.75rem; font-size: 0.8rem;" onclick="selectPaymentMethod('Apple Pay / GPay', this)">
+             Apple Pay
+          </button>
+          <button type="button" class="btn-outline-gold payment-tab-btn" style="flex: 1; justify-content: center; padding: 0.75rem; font-size: 0.8rem;" onclick="selectPaymentMethod('Cash on Delivery', this)">
+            💵 Cash on Delivery
+          </button>
+        </div>
+
+        <form id="paymentForm" onsubmit="completeOrder(event)">
+          <div class="checkout-form-grid" id="cardFieldsGrid">
+            <div class="form-group form-full-col">
+              <label class="form-label">Cardholder Name</label>
+              <input type="text" class="form-input" placeholder="Name as displayed on card" value="Alexander Wright">
+            </div>
+            <div class="form-group form-full-col">
+              <label class="form-label">Card Number</label>
+              <input type="text" class="form-input" placeholder="4242 •••• •••• 4242" maxlength="19" value="4242 •••• •••• 8821">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Expiry Date</label>
+              <input type="text" class="form-input" placeholder="MM / YY" maxlength="5" value="08/28">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Security CVC</label>
+              <input type="password" class="form-input" placeholder="•••" maxlength="4" value="789">
+            </div>
+          </div>
+
+          <div style="margin-top: 1.75rem; display: flex; gap: 1rem;">
+            <button type="button" class="btn-outline-gold" onclick="backToShippingStep()" style="flex: 1; justify-content: center;">
+              &larr; Back
+            </button>
+            <button type="submit" class="btn-primary-gold" style="flex: 2; justify-content: center;">
+              Authorise & Place Order
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Step 3: Order Confirmation & Receipt -->
+      <div id="checkoutConfirmation" style="display: none; text-align: center;">
+        <div style="width: 65px; height: 65px; border-radius: 50%; background: var(--gold-gradient); color: #000; font-size: 2rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem;">
+          ✓
+        </div>
+        <span class="section-label">ORDER REGISTERED & READY</span>
+        <h3 style="font-family: var(--font-serif); font-size: 1.75rem; color: #fff; margin-bottom: 0.5rem;">
+          Thank You For Choosing OLN CLASSIC
+        </h3>
+        <p style="color: var(--text-muted); font-size: 0.88rem; max-width: 480px; margin: 0 auto 1.5rem;">
+          Your order has been recorded. Full order details have been dispatched to our WhatsApp order desk (<strong>+20 110 764 4472</strong>).
+        </p>
+
+        <!-- Direct WhatsApp Action Button -->
+        <button type="button" onclick="sendOrderViaWhatsApp()" class="btn-primary-gold btn-whatsapp" style="width: 100%; justify-content: center; font-size: 0.95rem; margin-bottom: 1.25rem; padding: 1rem; border-radius: var(--radius-sm);">
+          <span>📱 Send / Open Order via WhatsApp (+20 110 764 4472)</span>
+        </button>
+
+        <!-- Dynamic Official Receipt Box -->
+        <div id="orderReceiptBox" class="receipt-box"></div>
+
+        <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 1.5rem;">
+          <button onclick="window.print()" class="btn-outline-gold" style="padding: 0.75rem 1.5rem;">
+            🖨 Print Official Receipt
+          </button>
+          <button onclick="closeCheckoutModal()" class="btn-primary-gold" style="padding: 0.75rem 2rem;">
+            Return to Atelier
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==========================================
+       14. Floating WhatsApp Concierge Widget
+       ========================================== -->
+  <a href="https://wa.me/201107644472?text=Hello%20OLN%20CLASSIC%20Atelier,%20I%20would%20like%20to%20inquire%20about%20your%20ties%20and%20suits." 
+     target="_blank" 
+     rel="noopener noreferrer"
+     class="floating-whatsapp-btn" 
+     id="floatingWhatsAppBtn" 
+     aria-label="Chat on WhatsApp" 
+     title="Direct WhatsApp with OLN Atelier (+20 110 764 4472)">
+    <span class="floating-whatsapp-icon">💬</span>
+    <span>WhatsApp: +20 110 764 4472</span>
+  </a>
+
+  <!-- ==========================================
+       15. Floating Toast Notification Container
+       ========================================== -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- Master JavaScript Logic -->
+  <script src="app.js"></script>
+</body>
+</html>
